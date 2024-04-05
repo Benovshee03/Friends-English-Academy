@@ -1,0 +1,16 @@
+.footer {
+  background: var(
+    --liner-red,
+    linear-gradient(180deg, #901930 0%, #480d18 100%)
+  );
+  background: var(
+    --liner-red,
+    linear-gradient(
+      180deg,
+      color(display-p3 0.5176 0.1451 0.1961) 0%,
+      color(display-p3 0.2588 0.0706 0.098) 100%
+    )
+  );
+  height: 216px;
+  width: 100%;
+}

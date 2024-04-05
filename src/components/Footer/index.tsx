@@ -4,18 +4,22 @@ import fb from "../../images/Facebook.png";
 import linkedin from "../../images/LinkedIn.png";
 import twitter from "../../images/Twitter.png";
 import pinterest from "../../images/Twitter.png";
+import phone from "../../images/phone_iphone.png"
+import mail from "../../images/mail.png"
+import loc from "../../images/fmd_good.png"
+import "../Footer/style.css"
 const Footer = () => {
     
   return (
-    <div>
-      <div>
-        <nav>
-          <ul>
-            <li>
+    <div className=" footer  text-light ">
+      <div className="d-f container ">
+        <nav className="w-30">
+          <ul className="  list-style-none">
+            <li className="fs-xs text-light align-items-center fw-400" style={{height:"96px"}}>
               Fluency is nothing more than mastering the 100 most important
               real-life conversations
             </li>
-            <li style={{backgroundColor:"red"}} >
+            <li className="d-f g-5"style={{height:"40px"}} >
               <div>
                 <img src={fb} alt="facebook logo" />
               </div>
@@ -31,59 +35,59 @@ const Footer = () => {
             </li>
           </ul>
         </nav>
-        <nav>
-          <ul>
+        <nav className="w-20">
+          <ul className="  list-style-none">
             <li>
-              <p>Speak Up Courses</p>
+              <p className="fw-700">Speak Up Courses</p>
             </li>
             <li>
-              <Link to="#">Learning English</Link>
+              <Link className=" text-dec-none text-light  text-dec-none fw-400" to="#">Learning English</Link>
             </li>
             <li>
-              <Link to="#">Learning Russian</Link>
+              <Link  className="text-light  text-dec-none"to="#">Learning Russian</Link>
             </li>
             <li>
-              <Link to="#">Learning French</Link>
+              <Link  className="text-light  text-dec-none"to="#">Learning French</Link>
             </li>
             <li>
-              <Link to="#">Learning German</Link>
+              <Link className="text-light  text-dec-none" to="#">Learning German</Link>
             </li>
           </ul>
         </nav>
-        <nav>
-          <ul>
+        <nav className="w-20">
+          <ul className=" list-style-none">
             <li>
               <p>Products</p>
             </li>
             <li>
-              <Link to="#">Home Page</Link>
+              <Link className="text-light  text-dec-none" to="#">Home Page</Link>
             </li>
             <li>
-              <Link to="#">Contact Us</Link>
+              <Link className="text-light  text-dec-none" to="#">Contact Us</Link>
             </li>
             <li>
-              <Link to="#">About Us</Link>
+              <Link  className="text-light  text-dec-none" to="#">About Us</Link>
             </li>
           </ul>
         </nav>
-        <nav>
-          <ul>
+        <nav className="w-30">
+          <ul className=" list-style-none ">
             <li>
               <p>Contact Information</p>
             </li>
             <li>
-              <Link to="#">+994705503434</Link>
+              <Link to="#" className="text-light  text-dec-none"><span><img src={phone} alt="phone" /></span>+994705503434</Link>
             </li>
             <li>
-              <Link to="#">friendsacademy@gmail.com</Link>
+              <Link to="#"  className="text-light  text-dec-none"><img src={mail} alt="mail" />friendsacademy@gmail.com</Link>
             </li>
             <li>
-              <Link to="#">Baku,Azerbaijan</Link>
+              <Link to="#"  className="text-light  text-dec-none"><img src={loc} alt="location" />Baku,Azerbaijan</Link>
             </li>
           </ul>
         </nav>
       </div>
-      <div>
+      <div className="container">
         <div> &copy; 2024 Friends Academy. All Rights Reserved.</div>
         <div>
             <div>Terms & Condition</div>
