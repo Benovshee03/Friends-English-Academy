@@ -3,13 +3,3 @@
 .list-style-none {
   list-style: none;
 }
-.g-2 {
-  gap: 2px; 
-}
-.g-5 {
-  gap: 40px; 
-}
-pre{
-
-  height: 70vh;
-}

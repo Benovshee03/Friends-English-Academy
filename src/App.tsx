@@ -5,11 +5,11 @@ import AppLayout from "./components/Layout/AppLayout";
 // import "@benovshe/sasslibrary/dist/index.css"
 function App() {
   return (
-    <div className="App">
+    <body className="App">
       <Router>
         <AppLayout/>
       </Router>
-    </div>
+    </body>
   );
 }
 
