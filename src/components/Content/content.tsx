@@ -7,7 +7,8 @@ import vector from "../../images/Vector 4094.png";
 import img1 from "../../images/Rectangle.png";
 import img2 from "../../images/img.png";
 import img3 from "../../images/image 12.png";
-const Content: React.FC = () => {
+import img4 from "../../images/image 231.png";
+function Content() {
   return (
     <div>
       <div
@@ -85,55 +86,75 @@ const Content: React.FC = () => {
           </div>
         </div>
       </div>
-      <div>
-        <div>
-          <div className="position-absolute ">
+      <div className="d-f fd-column g-5">
+        <div className="container-fluid">
+          <div className="position-absolute zi--1 ">
             <img src={vector} alt="vector" />
           </div>
-          <div className="container d-f zi-1">
-            <div>
-              <div>You can learn online</div>
-              <div>
+          <div className="container d-f justify-content-sb  align-items-center ">
+            <div
+              className="d-f fd-column align-items-center bg-light justify-content-center g-1"
+              style={{ width: "559px", height: "243px", borderRadius: "16px" }}
+            >
+              <div className="fs-xl fw-700">You can learn online</div>
+              <div
+                className="fs-md fw-400"
+                style={{ width: "515px", height: "89px" }}
+              >
                 Friend Academy is a quick and convenient online test to help
                 higher education institutions and employers check the English
                 levels of individuals and groups of candidates.{" "}
               </div>
             </div>
-            <div>
+            <div className="w-50 ">
               <img src={img1} alt="font image" />
               <div>
-                <div>You Speak Up To 6 Month Faster Than Now</div>
-                <div>
+                <div className="fs-44 fw-700" style={{ marginTop: "20px" }}>
+                  You Speak Up To 6 Month Faster Than Now
+                </div>
+                <div className="fs-20">
                   Our range of free teaching resources, lesson plans and
                   activities is designed to help you prepare your students for
                   our exams and tests. We also have a range of teaching
                   qualifications, courses and support to help you as a teacher.
                 </div>
-                <div>
-                  <div>Fun Fact</div>
-                  <div>
-                    Did you know remember %95 of a massage when it’s watched vs
-                    only 10% of what you read try it.
+                <div className="btn bg-light ">
+                  <div className="m-2">
+                    <div className="fs-sm fw-600 ">Fun Fact:</div>
+                    <div className="fs-xs">
+                      Did you know remember %95 of a massage when it’s watched
+                      vs only 10% of what you read try it.
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div>
+        <div className="container d-f  justify-content-sb">
           <div>
             <img src={img2} alt="image2" />
           </div>
-          <div>
-            Friends Academy is a quick and convenient online test to help higher
-            education institutions and employers check the English levels of
-            individuals and groups of candidates
+          <div className="w-50 justify-content-center">
+            <div className="fs-xl fw-700">
+              You can learn online and sit in class
+            </div>
+            <div className="fs-md" style={{ marginTop: "24px" }}>
+              Friends Academy is a quick and convenient online test to help
+              higher education institutions and employers check the English
+              levels of individuals and groups of candidates
+            </div>
           </div>
         </div>
-        <div>
+        <div className="container d-f justify-content-sb">
           <div>
-            <div>Together we inspire learners to go further</div>
-            <div>
+            <div className="fs-xl fw-700">
+              Together we inspire learners to go further
+            </div>
+            <div
+              className="fs-20 fw-400 text-secondary"
+              style={{ height: "240px" }}
+            >
               Try our quick, free online tests to find out what your level of
               English is, and which Cambridge English Qualification might be
               best for you. at the end you will get recommendations on how to
@@ -147,8 +168,75 @@ const Content: React.FC = () => {
           </div>
         </div>
       </div>
+      <div
+        className="about container d-f justify-content-sb align-items-center mt-4"
+        style={{ height: "445px" }}
+      >
+        <img src={img4} alt="" />
+        <div className="w-50">
+          <div className="fs-44 fw-700 ">About Us</div>
+          <div className="fs-32 fw-700 mt-1">Online Group Courses </div>
+          <div className="fs-20 fw-400 mt-1">
+            The learning experiences we create could only come from Cambridge.
+            Our solutions for teaching and assessment are empowering millions of
+            learners everywhere and are built on unique insights from our
+            research, expertise and speak Up is a quick and convenient online
+            test to help higher education institutions and employers and groups
+            of candidates.{" "}
+          </div>
+        </div>
+      </div>
+      <div className="container mt-4 mb-4">
+        <div className="d-f fd-column align-items-center">
+          <div className="fw-70 fs-44">
+            Here’s what others love about Friends Academy{" "}
+          </div>
+          <div className="fs-lg">
+            Our strong community are all learning together. Here’s what some of
+            them say.....{" "}
+          </div>
+        </div>
+        <div className="d-f justify-content-sb">
+          <div
+            style={{ width: "32%", height: "280px" }} className="bg-light d-f fd-column align-items-center justify-content-center">
+            <div>stars</div>
+            <div className="fs-md" style={{ width: "80%" }}>
+              "I just had a an honest to god conversation in French with a
+              friend in Quebec! I stumbled a bit, but we only used a translator
+              very rarely, and it’s because of Speak Up!"
+            </div>
+            <div className="fs-xs fw-600">
+              jack watson,<span className="fw-400"> 14 days</span>
+            </div>
+          </div>
+          <div
+            style={{ width: "32%", height: "280px" }} className="bg-light d-f fd-column align-items-center justify-content-center">
+            <div>stars</div>
+            <div className="fs-md" style={{ width: "80%" }}>
+              "I just had a an honest to god conversation in French with a
+              friend in Quebec! I stumbled a bit, but we only used a translator
+              very rarely, and it’s because of Speak Up!"
+            </div>
+            <div className="fs-xs fw-600">
+              jack watson,<span className="fw-400"> 14 days</span>
+            </div>
+          </div>
+          <div
+            style={{ width: "32%", height: "280px" }} className="bg-light d-f fd-column align-items-center justify-content-center">
+            <div>stars</div>
+            <div className="fs-md" style={{ width: "80%" }}>
+              "I just had a an honest to god conversation in French with a
+              friend in Quebec! I stumbled a bit, but we only used a translator
+              very rarely, and it’s because of Speak Up!"
+            </div>
+            <div className="fs-xs fw-600">
+              jack watson,<span className="fw-400"> 14 days</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default Content;
