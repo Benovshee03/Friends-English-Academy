@@ -54,7 +54,7 @@ const Header = () => {
               border: "none",
             }}
           >
-            Sign Up
+            <Link to="/login" className=" text-dec-none text-light ">Sign Up</Link>
           </button>
         </div>
       </div>

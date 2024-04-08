@@ -8,6 +8,10 @@ import img1 from "../../images/Rectangle.png";
 import img2 from "../../images/img.png";
 import img3 from "../../images/image 12.png";
 import img4 from "../../images/image 231.png";
+import img10 from "../../images/10.png";
+import lesson from "../../images/v6-icon (free).svg";
+import level from "../../images/icon.svg";
+import arrow from "../../images/keyboard_arrow_right.svg";
 function Content() {
   return (
     <div>
@@ -86,7 +90,7 @@ function Content() {
           </div>
         </div>
       </div>
-      <div className="d-f fd-column g-5">
+      <div className="d-f fd-column g-5 mb-3">
         <div className="container-fluid">
           <div className="position-absolute zi--1 ">
             <img src={vector} alt="vector" />
@@ -168,6 +172,153 @@ function Content() {
           </div>
         </div>
       </div>
+      <div className="container row justify-content-sb g-2">
+      <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+          <div>
+            <img src={img10} alt="course" />
+          </div>
+          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
+          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+            <div className="d-f align-items-center g-1">
+              <img src={lesson} alt="lesson" />
+              Lesson : 6
+            </div>
+            <div className="d-f align-items-center g-1">
+              <img src={level} alt="level" />
+              Advanced
+            </div>
+          </div>
+          <div style={{width:"358px"}}>
+          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
+            Start Course
+            <span>
+              <img src={arrow} alt="" />
+            </span>
+          </button>
+          </div>
+        </div>
+        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+          <div>
+            <img src={img10} alt="course" />
+          </div>
+          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
+          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+            <div className="d-f align-items-center g-1">
+              <img src={lesson} alt="lesson" />
+              Lesson : 6
+            </div>
+            <div className="d-f align-items-center g-1">
+              <img src={level} alt="level" />
+              Advanced
+            </div>
+          </div>
+          <div style={{width:"358px",marginTop:"32px"}}>
+          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
+            Start Course
+            <span>
+              <img src={arrow} alt="" />
+            </span>
+          </button>
+          </div>
+        </div>
+        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+          <div>
+            <img src={img10} alt="course" />
+          </div>
+          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
+          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+            <div className="d-f align-items-center g-1">
+              <img src={lesson} alt="lesson" />
+              Lesson : 6
+            </div>
+            <div className="d-f align-items-center g-1">
+              <img src={level} alt="level" />
+              Advanced
+            </div>
+          </div>
+          <div style={{width:"358px",marginTop:"32px"}}>
+          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
+            Start Course
+            <span>
+              <img src={arrow} alt="" />
+            </span>
+          </button>
+          </div>
+        </div>
+        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+          <div>
+            <img src={img10} alt="course" />
+          </div>
+          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
+          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+            <div className="d-f align-items-center g-1">
+              <img src={lesson} alt="lesson" />
+              Lesson : 6
+            </div>
+            <div className="d-f align-items-center g-1">
+              <img src={level} alt="level" />
+              Advanced
+            </div>
+          </div>
+          <div style={{width:"358px",marginTop:"32px"}}>
+          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
+            Start Course
+            <span>
+              <img src={arrow} alt="" />
+            </span>
+          </button>
+          </div>
+        </div>
+        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+          <div>
+            <img src={img10} alt="course" />
+          </div>
+          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
+          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+            <div className="d-f align-items-center g-1">
+              <img src={lesson} alt="lesson" />
+              Lesson : 6
+            </div>
+            <div className="d-f align-items-center g-1">
+              <img src={level} alt="level" />
+              Advanced
+            </div>
+          </div>
+          <div style={{width:"358px",marginTop:"32px"}}>
+          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
+            Start Course
+            <span>
+              <img src={arrow} alt="" />
+            </span>
+          </button>
+          </div>
+        </div>
+        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+          <div>
+            <img src={img10} alt="course" />
+          </div>
+          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
+          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+            <div className="d-f align-items-center g-1">
+              <img src={lesson} alt="lesson" />
+              Lesson : 6
+            </div>
+            <div className="d-f align-items-center g-1">
+              <img src={level} alt="level" />
+              Advanced
+            </div>
+          </div>
+          <div style={{width:"358px",marginTop:"32px"}}>
+          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
+            Start Course
+            <span>
+              <img src={arrow} alt="" />
+            </span>
+          </button>
+          </div>
+        </div>
+
+      </div>
       <div
         className="about container d-f justify-content-sb align-items-center mt-4"
         style={{ height: "445px" }}
@@ -189,7 +340,7 @@ function Content() {
       <div className="container mt-4 mb-4">
         <div className="d-f fd-column align-items-center">
           <div className="fw-70 fs-44">
-            Here’s what others love about Friends Academy{" "}
+            Here’s what others love about Friends Academy
           </div>
           <div className="fs-lg">
             Our strong community are all learning together. Here’s what some of
@@ -198,7 +349,9 @@ function Content() {
         </div>
         <div className="d-f justify-content-sb">
           <div
-            style={{ width: "32%", height: "280px" }} className="bg-light d-f fd-column align-items-center justify-content-center">
+            style={{ width: "32%", height: "280px" }}
+            className="bg-light d-f fd-column align-items-center justify-content-center"
+          >
             <div>stars</div>
             <div className="fs-md" style={{ width: "80%" }}>
               "I just had a an honest to god conversation in French with a
@@ -210,7 +363,9 @@ function Content() {
             </div>
           </div>
           <div
-            style={{ width: "32%", height: "280px" }} className="bg-light d-f fd-column align-items-center justify-content-center">
+            style={{ width: "32%", height: "280px" }}
+            className="bg-light d-f fd-column align-items-center justify-content-center"
+          >
             <div>stars</div>
             <div className="fs-md" style={{ width: "80%" }}>
               "I just had a an honest to god conversation in French with a
@@ -222,7 +377,9 @@ function Content() {
             </div>
           </div>
           <div
-            style={{ width: "32%", height: "280px" }} className="bg-light d-f fd-column align-items-center justify-content-center">
+            style={{ width: "32%", height: "280px" }}
+            className="bg-light d-f fd-column align-items-center justify-content-center"
+          >
             <div>stars</div>
             <div className="fs-md" style={{ width: "80%" }}>
               "I just had a an honest to god conversation in French with a
@@ -235,6 +392,7 @@ function Content() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }
