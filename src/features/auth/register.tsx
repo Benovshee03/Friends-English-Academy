@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import { UserOutlined } from "@ant-design/icons";
-import { Checkbox, Input, Space } from "antd";
+import {  Input, Space } from "antd";
 import { Link } from "react-router-dom";
 import "@benovshe/sasslibrary/dist/index.css";
-import google from "../../images/Google svg.png";
-import fb from "../../images/Facebook svg.png";
-import insta from "../../images/Instagram svg.png";
 import rectangle from "../../images/login.png";
-import { useNavigate } from "react-router-dom";
-const Login = () => {
+const Register = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const navigate = useNavigate()
-  function onSubmit(){
-    navigate("/")
-  }
+
   return (
     <div className="smContainer d-f mt-3 mb-3">
       <div
@@ -25,13 +18,21 @@ const Login = () => {
         className="d-f justify-content-center align-items-center "
       >
         <div style={{ width: "339px" }} className="m-3 d-f fd-column g-2">
-          <div className="fs-xl fw-700">Log in</div>
+          <div className="fs-xl fw-700">Sign Up</div>
           <div className="d-f fd-column w-100 g-2">
             <div>
-              <span className="fs-14">Mail or Username</span>
+              <span className="fs-14">Full Name</span>
             <Input 
               size="large"
-              placeholder="Enter your mail or username"
+              placeholder="Enter your Name"
+              suffix={<UserOutlined />}
+            />
+            </div>
+            <div>
+              <span className="fs-14">Mail Adress</span>
+            <Input 
+              size="large"
+              placeholder="Enter your mail adress"
               suffix={<UserOutlined />}
             />
             </div>
@@ -52,37 +53,14 @@ const Login = () => {
             </Space>
             </div>
           </div>
-          <div className="d-f justify-content-sb">
-            <Checkbox className="fs-sm">Remember Me</Checkbox>
-            <Link to="/forgot" className="text-dec-none text-dark fs-sm">
-              {" "}
-              Forgot Password?
-            </Link>
-          </div>
           <div className="w-100 mb-1" >
-            <button className="btn bg-primary text-light w-100 fs-xs" style={{height:"48px"}} onClick={onSubmit}>Log In</button>
+            <button className="btn bg-primary text-light w-100 fs-xs" style={{height:"48px"}}>Sign Up</button>
           </div>
           <div className="d-f fd-column align-items-center g-1 ">
-            <div className="d-f align-items-center g-2">
-              <div style={{width:"76px",height:"1px",background: "rgba(29, 15, 95, 0.20)"}}></div>
-              <div className="fs-14 fw-500">Or continue with</div>
-              <div style={{width:"76px",height:"1px",background: "rgba(29, 15, 95, 0.20)"}}></div>
-            </div>
-            <div className="d-f g-3">
-              <div>
-                <img src={google} alt="social media" />
-              </div>
-              <div>
-                <img src={fb} alt="social media" />
-              </div>
-              <div>
-                <img src={insta} alt="social media" />
-              </div>
-            </div>
             <div className="fs-14 d-f g-1">
-              <div>Don’t have an Account?</div>
-              <Link to="/register" className="text-dec-none">
-                Sign Up
+              <div>Already have an Account?</div>
+              <Link to="/login" className="text-dec-none">
+                Log In
               </Link>
             </div>
           </div>
@@ -98,4 +76,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
