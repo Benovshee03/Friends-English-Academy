@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "@benovshe/sasslibrary/dist/index.css";
-import logo from "../../images/logo.png";
+import logo from "../../images/newlogo.png";
 const Header = () => {
   return (
     <div
@@ -18,7 +18,11 @@ const Header = () => {
         }}
       >
         <div className="logo">
-          <img src={logo} alt="logo" />
+          <img
+            src={logo}
+            style={{ width: " 186px", height: " 55px" }}
+            alt="logo"
+          />
         </div>
         <nav>
           <ul className="d-f list-style-none g-5 ">
@@ -54,7 +58,9 @@ const Header = () => {
               border: "none",
             }}
           >
-            <Link to="/login" className=" text-dec-none text-light ">Sign Up</Link>
+            <Link to="/login" className=" text-dec-none text-light ">
+              Sign Up
+            </Link>
           </button>
         </div>
       </div>

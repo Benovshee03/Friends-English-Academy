@@ -22,7 +22,7 @@ function Content() {
         <div style={{ maxWidth: "496px", marginTop: "86px" }}>
           <h1 className="fs-xxl">Studying Online is now much easier</h1>
           <p className="fw-400 fs-xs" style={{ marginBottom: "34px" }}>
-            Speak Up is an interesting platform that will teach you in more an
+           Friends Academy is an interesting platform that will teach you in more an
             interactive way
           </p>
           <div className="d-f g-3" style={{ marginBottom: "32px" }}>
