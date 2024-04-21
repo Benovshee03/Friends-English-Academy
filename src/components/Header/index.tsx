@@ -2,7 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "@benovshe/sasslibrary/dist/index.css";
 import logo from "../../images/newlogo.png";
+import { useNavigate } from "react-router-dom";
+import { on } from "stream";
 const Header = () => {
+  const navigate = useNavigate()
+  function onClickToLogo(){
+    navigate("/")
+  }
   return (
     <div
       style={{
@@ -17,7 +23,7 @@ const Header = () => {
           alignItems: "center",
         }}
       >
-        <div className="logo">
+        <div className="logo" onClick={onClickToLogo}>
           <img
             src={logo}
             style={{ width: " 186px", height: " 55px" }}

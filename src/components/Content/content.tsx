@@ -188,7 +188,7 @@ function Content() {
               Advanced
             </div>
           </div>
-          <div style={{width:"358px"}}>
+          <div style={{width:"358px",marginTop:"35px"}}>
           <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
             Start Course
             <span>
