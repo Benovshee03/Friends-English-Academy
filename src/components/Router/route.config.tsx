@@ -21,7 +21,7 @@ const routeConfig: any[] = [
     element: <AppLayout content={<NotFound />} />
   },  {
     key: "3",
-    path: "/login",
+    path: "admin/login",
     element: <AppLayout content={<Login />} />
   },  {
     key: "4",

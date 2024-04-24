@@ -1,5 +1,44 @@
-
-
-.list-style-none {
-  list-style: none;
+.responsImage {
+  width: 320px;
+}
+.btnWeb {
+  width: 97px;
+  height: 40px;
+  border: none;
+}
+.btnMobile {
+  width: 74px;
+  height: 30px;
+}
+.boxMobile {
+  width: 358px;
+  height: 316px;
+  border-radius: 8px;
+  border: 1px solid #dfdfdf;
+  border: 1px solid color(display-p3 0.8745 0.8745 0.8745);
+  background: #fff;
+  background: color(display-p3 1 1 1);
+}
+.buttonMore {
+  width: 152px;
+  height: 32px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  gap: 8px;
+  border: 1px solid #830024;
+}
+.mobLogin{
+  width: 350px;
+  height: 477px;
+  background-color: #FAF7F7;
+}
+.log{
+  height: 795px;
+  border-radius: "0px 8px 8px 0px";
+  background: " var(--Foundation-Red-Light, #F6EAEB)";
+}
+.pasWeb{
+  width: 339px;
 }

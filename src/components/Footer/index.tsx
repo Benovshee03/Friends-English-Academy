@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import fb from "../../images/Facebook.png";
 import linkedin from "../../images/LinkedIn.png";
@@ -10,11 +10,25 @@ import loc from "../../images/fmd_good.png"
 import "@benovshe/sasslibrary/dist/index.css";
 
 const Footer = () => {
-    
+  const [responsive, setResponsive] = useState(window.innerWidth>480);
+  useEffect(() => {
+    function handleResize() {
+      setResponsive(window.innerWidth <= 480);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  useEffect(() => {
+    function handleResize() {
+      setResponsive(window.innerWidth <= 480);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className=" bg-primary  text-light ">
-      <div className="d-f container  justify-content-sb ">
-        <nav className=" mt-2" style={{width:"258px"}}>
+      <div className={responsive ? "d-f container  justify-content-sb " : " container-sm mt-2"}>
+        <nav className=" mt-2 d-sm-none" style={{width:"258px"}}>
           <ul className="  list-style-none ">
             <li className="fs-xs text-light align-items-center fw-400" style={{height:"96px"}}>
               Fluency is nothing more than mastering the 100 most important
@@ -36,7 +50,7 @@ const Footer = () => {
             </li>
           </ul>
         </nav>
-        <nav className="mt-2" style={{width:"145px"}}>
+        <nav className="mt-2  d-sm-none" style={{width:"145px"}}>
           <ul className="  list-style-none">
             <li>
               <p className="fw-700"> Courses</p>
@@ -55,7 +69,7 @@ const Footer = () => {
             </li>
           </ul>
         </nav>
-        <nav className="mt-2" style={{width:"135px"}}>
+        <nav className="mt-2  d-sm-none" style={{width:"135px"}}>
           <ul className=" list-style-none">
             <li>
               <p>Products</p>
@@ -71,7 +85,7 @@ const Footer = () => {
             </li>
           </ul>
         </nav>
-        <nav className="mt-2" style={{width:"241px"}}>
+        <nav className="mt-2 mb-2" style={{width:"241px"}}>
           <ul className=" list-style-none ">
             <li>
               <p>Contact Information</p>
@@ -89,7 +103,7 @@ const Footer = () => {
         </nav>
       </div>
       <div style={{borderTop:"0.5px solid var(--white, #FFF)"}}>
-        <div className="container d-f justify-content-sb align-items-center" style={{height:"73px"}}>
+        <div className={responsive ? "container d-f justify-content-sb align-items-center" : "container-sm fd-column align-items-center"} style={{height:"73px"}}>
         <div className="fw-600 fs-sm"> &copy; 2024 Friends Academy. All Rights Reserved.</div>
         <div className="d-f g-3">
             <div>Terms & Condition</div>

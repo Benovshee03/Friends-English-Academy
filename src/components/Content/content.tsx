@@ -1,9 +1,12 @@
+import { useEffect, useState } from "react";
 import Rafiki from "../../images/rafiki.png";
+import mobileFirst from "../../images/mobileFirst.png";
 import udemy from "../../images/image 236.png";
 import google from "../../images/image 237.png";
 import tlc from "../../images/image 238.png";
 import brand from "../../images/image 239.png";
 import vector from "../../images/Vector 4094.png";
+import vectorRes from "../../images/vectorRes.png";
 import img1 from "../../images/Rectangle.png";
 import img2 from "../../images/img.png";
 import img3 from "../../images/image 12.png";
@@ -12,18 +15,41 @@ import img10 from "../../images/10.png";
 import lesson from "../../images/v6-icon (free).svg";
 import level from "../../images/icon.svg";
 import arrow from "../../images/keyboard_arrow_right.svg";
+import arrowPri from "../../images/arrowPrimary.png"
 function Content() {
+  const [responsive, setResponsive] = useState(window.innerWidth > 480);
+  useEffect(() => {
+    function handleResize() {
+      setResponsive(window.innerWidth <= 480);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  useEffect(() => {
+    function handleResize() {
+      setResponsive(window.innerWidth <= 480);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
-    <div>
+    <div className="d-flex fd-column align-items-center">
       <div
-        className=" container d-f  justify-content-sb"
-        style={{ marginTop: "73px", marginBottom: "184px" }}
+        className={
+          responsive
+            ? " container d-f  justify-content-sb"
+            : "d-f fd-column align-items-center mb-2"
+        }
+        style={{ marginTop: "73px" }}
       >
-        <div style={{ maxWidth: "496px", marginTop: "86px" }}>
+        <div
+          className="d-sm-none"
+          style={{ maxWidth: "496px", marginTop: "86px" }}
+        >
           <h1 className="fs-xxl">Studying Online is now much easier</h1>
           <p className="fw-400 fs-xs" style={{ marginBottom: "34px" }}>
-           Friends Academy is an interesting platform that will teach you in more an
-            interactive way
+            Friends Academy is an interesting platform that will teach you in
+            more an interactive way
           </p>
           <div className="d-f g-3" style={{ marginBottom: "32px" }}>
             <button
@@ -49,11 +75,39 @@ function Content() {
           </div>
         </div>
         <div>
-          <img src={Rafiki} alt="first page image" />
+          {responsive ? (
+            <img src={Rafiki} alt="first page image" />
+          ) : (
+            <img src={mobileFirst} alt="first page image" />
+          )}
+        </div>
+        <div
+          className="d-none d-sm-flex fd-column align-items-center justify-content-center g-1 mt-2"
+          style={{
+            height: "208px",
+            borderRadius: "8px",
+            boxShadow:
+              "4px 4px 50px 0px color(display-p3 0.149 0.1765 0.4627 / 0.09)",
+          }}
+        >
+          <div className="fs-md fw-700 text-primary d-f align-items-center">
+            You can learn online and sit in class
+          </div>
+          <div className="fs-sm fw-600 p-1">
+            Friends Academy is a quick and convenient online test to help higher
+            education institutions and employers check the English levels of
+            individuals and groups of candidates.{" "}
+          </div>
+          <button
+            className="btn bg-primary text-light"
+            style={{ width: "133px", height: "30px" }}
+          >
+            Test Your English
+          </button>
         </div>
       </div>
       <div
-        className="container d-f fd-column align-items-center"
+        className="container d-f fd-column align-items-center d-sm-none"
         style={{ marginBottom: "84px" }}
       >
         <div className="fs-xxl fw-700  " style={{ marginBottom: "32px" }}>
@@ -90,14 +144,27 @@ function Content() {
           </div>
         </div>
       </div>
-      <div className="d-f fd-column g-5 mb-3">
+      <div
+        className={
+          responsive ? "d-f fd-column g-5 mb-3" : "d-f fd-column g-3 mb-3"
+        }
+      >
+        <div className="position-absolute zi--1 d-none d-sm-flex">
+          <img src={vectorRes} alt="vector" />
+        </div>
         <div className="container-fluid">
-          <div className="position-absolute zi--1 ">
+          <div className={responsive ? "position-absolute zi--1 " : "d-none"}>
             <img src={vector} alt="vector" />
           </div>
-          <div className="container d-f justify-content-sb  align-items-center ">
+          <div
+            className={
+              responsive
+                ? "container d-f justify-content-sb  align-items-center "
+                : "container-sm "
+            }
+          >
             <div
-              className="d-f fd-column align-items-center bg-light justify-content-center g-1"
+              className="d-f fd-column align-items-center bg-light justify-content-center g-1 d-sm-none"
               style={{ width: "559px", height: "243px", borderRadius: "16px" }}
             >
               <div className="fs-xl fw-700">You can learn online</div>
@@ -110,13 +177,24 @@ function Content() {
                 levels of individuals and groups of candidates.{" "}
               </div>
             </div>
-            <div className="w-50 ">
-              <img src={img1} alt="font image" />
+            <div
+              className={
+                responsive ? "w-50 " : " d-f fd-column align-items-center"
+              }
+            >
+              <img
+                src={img1}
+                className={responsive ? "img" : "responsImage"}
+                alt="font image"
+              />
               <div>
-                <div className="fs-44 fw-700" style={{ marginTop: "20px" }}>
+                <div
+                  className={responsive ? "fs-44 fw-700" : "fs-lg fw-700"}
+                  style={{ marginTop: "20px" }}
+                >
                   You Speak Up To 6 Month Faster Than Now
                 </div>
-                <div className="fs-20">
+                <div className={responsive ? "fs-20" : "fs-sm"}>
                   Our range of free teaching resources, lesson plans and
                   activities is designed to help you prepare your students for
                   our exams and tests. We also have a range of teaching
@@ -124,8 +202,12 @@ function Content() {
                 </div>
                 <div className="btn bg-light ">
                   <div className="m-2">
-                    <div className="fs-sm fw-600 ">Fun Fact:</div>
-                    <div className="fs-xs">
+                    <div
+                      className={responsive ? "fs-sm fw-600 " : "fs-14 fw-600"}
+                    >
+                      Fun Fact:
+                    </div>
+                    <div className={responsive ? "fs-xs" : "fs-sm"}>
                       Did you know remember %95 of a massage when it’s watched
                       vs only 10% of what you read try it.
                     </div>
@@ -135,29 +217,49 @@ function Content() {
             </div>
           </div>
         </div>
-        <div className="container d-f  justify-content-sb">
-          <div>
-            <img src={img2} alt="image2" />
-          </div>
-          <div className="w-50 justify-content-center">
-            <div className="fs-xl fw-700">
-              You can learn online and sit in class
+        <div className={responsive ? "container   " : "container-sm"}>
+          <div
+            className={
+              responsive
+                ? "container-fluid d-f justify-content-sb"
+                : "d-f fd-column align-items-center"
+            }
+          >
+            <div>
+              <img
+                src={img2}
+                alt="image2"
+                className={responsive ? "img" : "responsImage"}
+              />
             </div>
-            <div className="fs-md" style={{ marginTop: "24px" }}>
-              Friends Academy is a quick and convenient online test to help
-              higher education institutions and employers check the English
-              levels of individuals and groups of candidates
+            <div
+              className={responsive ? "w-50 justify-content-center" : "w-100"}
+            >
+              <div className={responsive ? "fs-44 fw-700" : "fs-lg fw-700"}>
+                You can learn online and sit in class
+              </div>
+              <div className={responsive ? "fs-20 mt-2" : "fs-sm"}>
+                Friends Academy is a quick and convenient online test to help
+                higher education institutions and employers check the English
+                levels of individuals and groups of candidates
+              </div>
             </div>
           </div>
         </div>
-        <div className="container d-f justify-content-sb">
-          <div>
-            <div className="fs-xl fw-700">
+        <div
+          className={
+            responsive
+              ? "container d-f  justify-content-sb"
+              : "container-sm d-f fd-column g-2 align-items-center"
+          }
+        >
+          <div className="container-fluid d-sm-none d-f fd-column align-items-center ">
+            <div className={responsive ? "fs-44 fw-700" : "fs-lg fw-700"}>
               Together we inspire learners to go further
             </div>
             <div
-              className="fs-20 fw-400 text-secondary"
-              style={{ height: "240px" }}
+              className={responsive ? "fs-20 mt-2 text-secondary" : "fs-sm"}
+              style={{ height: "auto" }}
             >
               Try our quick, free online tests to find out what your level of
               English is, and which Cambridge English Qualification might be
@@ -168,17 +270,48 @@ function Content() {
             </div>
           </div>
           <div>
-            <img src={img3} alt="font image" />
+            <img
+              src={img3}
+              alt="font image"
+              className={responsive ? "img" : "responsImage"}
+            />
+          </div>
+          <div className="d-none d-sm-flex fd-column align-items-center ">
+            <div className={responsive ? "fs-44 fw-700" : "fs-lg fw-700"}>
+              Together we inspire learners to go further
+            </div>
+            <div
+              className={responsive ? "fs-20 mt-2 text-secondary" : "fs-sm"}
+              style={{ height: "auto" }}
+            >
+              Try our quick, free online tests to find out what your level of
+              English is, and which Cambridge English Qualification might be
+              best for you. at the end you will get recommendations on how to
+              improve your English. Try our quick, free online tests to find out
+              what your level of English is, and which Cambridge English
+              Qualification might be best for you
+            </div>
           </div>
         </div>
       </div>
-      <div className="container row justify-content-sb g-2">
-      <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+      <div className={responsive ? "container row justify-content-sb g-2" : "container-sm row justify-content-sb g-2"}>
+        <div className="d-none d-sm-block container-sm fw-700 text-primary">
+          Popular Courses
+        </div>
+        <div
+          style={{ width: "392px" }}
+          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
+        >
           <div>
             <img src={img10} alt="course" />
           </div>
-          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
-          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+          <div className="fw-600" style={{ width: "358px" }}>
+            Learning historical words and sentences
+          </div>
+          <div
+            style={{ width: "358px", marginTop: "20px" }}
+            className="d-f align-items-center g-2"
+          >
             <div className="d-f align-items-center g-1">
               <img src={lesson} alt="lesson" />
               Lesson : 6
@@ -188,21 +321,32 @@ function Content() {
               Advanced
             </div>
           </div>
-          <div style={{width:"358px",marginTop:"35px"}}>
-          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
-            Start Course
-            <span>
-              <img src={arrow} alt="" />
-            </span>
-          </button>
+          <div style={{ width: "358px", marginTop: "35px" }}>
+            <button
+              className="btn text-light bg-primary d-f align-items-center justify-content-center"
+              style={{ width: "164px", height: "48px" }}
+            >
+              Start Course
+              <span>
+                <img src={arrow} alt="" />
+              </span>
+            </button>
           </div>
         </div>
-        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+        <div
+          style={{ width: "392px" }}
+          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
+        >
           <div>
             <img src={img10} alt="course" />
           </div>
-          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
-          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+          <div className="fw-600" style={{ width: "358px" }}>
+            Learning historical words and sentences
+          </div>
+          <div
+            style={{ width: "358px", marginTop: "20px" }}
+            className="d-f align-items-center g-2"
+          >
             <div className="d-f align-items-center g-1">
               <img src={lesson} alt="lesson" />
               Lesson : 6
@@ -212,21 +356,32 @@ function Content() {
               Advanced
             </div>
           </div>
-          <div style={{width:"358px",marginTop:"32px"}}>
-          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
-            Start Course
-            <span>
-              <img src={arrow} alt="" />
-            </span>
-          </button>
+          <div style={{ width: "358px", marginTop: "32px" }}>
+            <button
+              className="btn text-light bg-primary d-f align-items-center justify-content-center"
+              style={{ width: "164px", height: "48px" }}
+            >
+              Start Course
+              <span>
+                <img src={arrow} alt="" />
+              </span>
+            </button>
           </div>
         </div>
-        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+        <div
+          style={{ width: "392px" }}
+          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
+        >
           <div>
             <img src={img10} alt="course" />
           </div>
-          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
-          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+          <div className="fw-600" style={{ width: "358px" }}>
+            Learning historical words and sentences
+          </div>
+          <div
+            style={{ width: "358px", marginTop: "20px" }}
+            className="d-f align-items-center g-2"
+          >
             <div className="d-f align-items-center g-1">
               <img src={lesson} alt="lesson" />
               Lesson : 6
@@ -236,21 +391,32 @@ function Content() {
               Advanced
             </div>
           </div>
-          <div style={{width:"358px",marginTop:"32px"}}>
-          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
-            Start Course
-            <span>
-              <img src={arrow} alt="" />
-            </span>
-          </button>
+          <div style={{ width: "358px", marginTop: "32px" }}>
+            <button
+              className="btn text-light bg-primary d-f align-items-center justify-content-center"
+              style={{ width: "164px", height: "48px" }}
+            >
+              Start Course
+              <span>
+                <img src={arrow} alt="" />
+              </span>
+            </button>
           </div>
         </div>
-        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+        <div
+          style={{ width: "392px" }}
+          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
+        >
           <div>
             <img src={img10} alt="course" />
           </div>
-          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
-          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+          <div className="fw-600" style={{ width: "358px" }}>
+            Learning historical words and sentences
+          </div>
+          <div
+            style={{ width: "358px", marginTop: "20px" }}
+            className="d-f align-items-center g-2"
+          >
             <div className="d-f align-items-center g-1">
               <img src={lesson} alt="lesson" />
               Lesson : 6
@@ -260,21 +426,32 @@ function Content() {
               Advanced
             </div>
           </div>
-          <div style={{width:"358px",marginTop:"32px"}}>
-          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
-            Start Course
-            <span>
-              <img src={arrow} alt="" />
-            </span>
-          </button>
+          <div style={{ width: "358px", marginTop: "32px" }}>
+            <button
+              className="btn text-light bg-primary d-f align-items-center justify-content-center"
+              style={{ width: "164px", height: "48px" }}
+            >
+              Start Course
+              <span>
+                <img src={arrow} alt="" />
+              </span>
+            </button>
           </div>
         </div>
-        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+        <div
+          style={{ width: "392px" }}
+          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
+        >
           <div>
             <img src={img10} alt="course" />
           </div>
-          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
-          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+          <div className="fw-600" style={{ width: "358px" }}>
+            Learning historical words and sentences
+          </div>
+          <div
+            style={{ width: "358px", marginTop: "20px" }}
+            className="d-f align-items-center g-2"
+          >
             <div className="d-f align-items-center g-1">
               <img src={lesson} alt="lesson" />
               Lesson : 6
@@ -284,21 +461,32 @@ function Content() {
               Advanced
             </div>
           </div>
-          <div style={{width:"358px",marginTop:"32px"}}>
-          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
-            Start Course
-            <span>
-              <img src={arrow} alt="" />
-            </span>
-          </button>
+          <div style={{ width: "358px", marginTop: "32px" }}>
+            <button
+              className="btn text-light bg-primary d-f align-items-center justify-content-center"
+              style={{ width: "164px", height: "48px" }}
+            >
+              Start Course
+              <span>
+                <img src={arrow} alt="" />
+              </span>
+            </button>
           </div>
         </div>
-        <div style={{width:"392px"}} className="d-f fd-column align-items-center ">
+        <div
+          style={{ width: "392px" }}
+          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
+        >
           <div>
             <img src={img10} alt="course" />
           </div>
-          <div className="fw-600" style={{width:"358px"}}>Learning historical words and sentences</div>
-          <div style={{width:"358px",marginTop:"20px"}} className="d-f align-items-center g-2">
+          <div className="fw-600" style={{ width: "358px" }}>
+            Learning historical words and sentences
+          </div>
+          <div
+            style={{ width: "358px", marginTop: "20px" }}
+            className="d-f align-items-center g-2"
+          >
             <div className="d-f align-items-center g-1">
               <img src={lesson} alt="lesson" />
               Lesson : 6
@@ -308,26 +496,51 @@ function Content() {
               Advanced
             </div>
           </div>
-          <div style={{width:"358px",marginTop:"32px"}}>
-          <button className="btn text-light bg-primary d-f align-items-center justify-content-center" style={{width:"164px",height:"48px"}}>
-            Start Course
-            <span>
-              <img src={arrow} alt="" />
-            </span>
-          </button>
+          <div style={{ width: "358px", marginTop: "32px" }}>
+            <button
+              className="btn text-light bg-primary d-f align-items-center justify-content-center"
+              style={{ width: "164px", height: "48px" }}
+            >
+              Start Course
+              <span>
+                <img src={arrow} alt="" />
+              </span>
+            </button>
           </div>
         </div>
-
+        <div className="d-none container-sm d-sm-flex justify-content-center align-items-center" style={{height:"81px"}}>
+        <button 
+              className="text-primary bg-light d-f  buttonMore align-items-center justify-content-center"
+              style={{ width: "164px", height: "48px" }}
+            >
+              See all more
+              <span>
+                <img src={arrowPri} alt="arrow" style={{color:"#830024"}} />
+              </span>
+            </button>
+        </div>
       </div>
       <div
-        className="about container d-f justify-content-sb align-items-center mt-4"
-        style={{ height: "445px" }}
+        className={responsive ? "about container d-f justify-content-sb align-items-center mt-4" : "about container-sm align-items-center mt-4 "}
+        style={{ height: "445px",marginBottom:"130px" }}
       >
-        <img src={img4} alt="" />
-        <div className="w-50">
-          <div className="fs-44 fw-700 ">About Us</div>
-          <div className="fs-32 fw-700 mt-1">Online Group Courses </div>
-          <div className="fs-20 fw-400 mt-1">
+                <div className="d-none d-sm-block w-100 mb-2">
+          <div className={responsive ? "fs-44 fw-700 " : "fs-lg fw-700"}>About Us</div>
+          <div className={responsive ? "fs-32 fw-700 mt-1":"fs-lg fw-700"}>Online Group Courses </div>
+          <div className={responsive ? "fs-20 fw-400 mt-1" : "fs-sm"}>
+            The learning experiences we create could only come from Cambridge.
+            Our solutions for teaching and assessment are empowering millions of
+            learners everywhere and are built on unique insights from our
+            research, expertise and speak Up is a quick and convenient online
+            test to help higher education institutions and employers and groups
+            of candidates.{" "}
+          </div>
+        </div>
+        <img src={img4} alt="" className={responsive ? "d-block" :"w-100"}/>
+        <div className="d-sm-none w-50" >
+          <div className={responsive ? "fs-44 fw-700 " : "fs-lg fw-700"}>About Us</div>
+          <div className={responsive ? "fs-32 fw-700 mt-1":"fs-lg fw-700"}>Online Group Courses </div>
+          <div className={responsive ? "fs-20 fw-400 mt-1" : "fs-sm"}>
             The learning experiences we create could only come from Cambridge.
             Our solutions for teaching and assessment are empowering millions of
             learners everywhere and are built on unique insights from our
@@ -337,17 +550,17 @@ function Content() {
           </div>
         </div>
       </div>
-      <div className="container mt-4 mb-4">
+      <div className={responsive ? "container mt-4 mb-4" : "container-sm mt-4 mb-4"}>
         <div className="d-f fd-column align-items-center">
-          <div className="fw-70 fs-44">
+          <div className={responsive ? "fw-70 fs-44" : "fs-sm fw-600"}>
             Here’s what others love about Friends Academy
           </div>
-          <div className="fs-lg">
+          <div className={responsive ? "fs-lg" : "fs-sm"}>
             Our strong community are all learning together. Here’s what some of
             them say.....{" "}
           </div>
         </div>
-        <div className="d-f justify-content-sb">
+        <div className="d-f justify-content-sb d-sm-none">
           <div
             style={{ width: "32%", height: "280px" }}
             className="bg-light d-f fd-column align-items-center justify-content-center"
@@ -382,6 +595,36 @@ function Content() {
           >
             <div>stars</div>
             <div className="fs-md" style={{ width: "80%" }}>
+              "I just had a an honest to god conversation in French with a
+              friend in Quebec! I stumbled a bit, but we only used a translator
+              very rarely, and it’s because of Speak Up!"
+            </div>
+            <div className="fs-xs fw-600">
+              jack watson,<span className="fw-400"> 14 days</span>
+            </div>
+          </div>
+        </div>
+        <div className="d-none d-sm-flex justify-content-sb ">
+          <div
+            style={{ width: "48%", height: "auto" }}
+            className="bg-light d-f fd-column align-items-center justify-content-center"
+          >
+            <div>stars</div>
+            <div className="fs-sm" style={{ width: "80%" }}>
+              "I just had a an honest to god conversation in French with a
+              friend in Quebec! I stumbled a bit, but we only used a translator
+              very rarely, and it’s because of Speak Up!"
+            </div>
+            <div className="fs-xs fw-600">
+              jack watson,<span className="fw-400"> 14 days</span>
+            </div>
+          </div>
+          <div
+            style={{ width: "48%", height: "auto" }}
+            className="bg-light d-f fd-column align-items-center justify-content-center"
+          >
+            <div>stars</div>
+            <div className="fs-sm" style={{ width: "80%" }}>
               "I just had a an honest to god conversation in French with a
               friend in Quebec! I stumbled a bit, but we only used a translator
               very rarely, and it’s because of Speak Up!"
@@ -392,7 +635,6 @@ function Content() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }

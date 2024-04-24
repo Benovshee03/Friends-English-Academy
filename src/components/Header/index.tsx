@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useState ,useEffect} from "react";
 import { Link } from "react-router-dom";
 import "@benovshe/sasslibrary/dist/index.css";
 import logo from "../../images/newlogo.png";
+import logoMobile from "../../images/logoMobile.png";
 import { useNavigate } from "react-router-dom";
-import { on } from "stream";
+import menu from "../../images/menu.png";
 const Header = () => {
-  const navigate = useNavigate()
-  function onClickToLogo(){
-    navigate("/")
+  const navigate = useNavigate();
+  function onClickToLogo() {
+    navigate("/");
   }
+  const [responsive, setResponsive] = useState(window.innerWidth>480);
+  useEffect(() => {
+    function handleResize() {
+      setResponsive(window.innerWidth <= 480);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  useEffect(() => {
+    function handleResize() {
+      setResponsive(window.innerWidth <= 480);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); 
   return (
     <div
       style={{
@@ -16,22 +32,22 @@ const Header = () => {
       }}
     >
       <div
-        className="container d-f"
+        className= {responsive? "container d-f" : "container-sm d-f justify-content-sa "}
         style={{
           justifyContent: "space-between",
-          height: "111px",
+          height: responsive ? "111px" : "56px",
           alignItems: "center",
         }}
       >
-        <div className="logo" onClick={onClickToLogo}>
-          <img
-            src={logo}
-            style={{ width: " 186px", height: " 55px" }}
-            alt="logo"
-          />
+        <div className="d-none d-sm-flex">
+          <img src={menu} alt="hamburger menu" />
+        </div>
+        <div className="d-sm-flex logo"  onClick={onClickToLogo}>
+          <img src={logo} alt="logo" className="d-xxl-flex d-sm-none" />
+          <img src={logoMobile} alt="logo" style={{marginLeft:"40px"}} className=" d-none d-sm-flex" />
         </div>
         <nav>
-          <ul className="d-f list-style-none g-5 ">
+          <ul className="d-f d-sm-none list-style-none g-5 ">
             <li>
               <Link to="/" className="  text-dec-none text-secondary ">
                 Home
@@ -56,15 +72,12 @@ const Header = () => {
         </nav>
         <div className="signUp">
           <button
-            className="bg-primary text-light  "
+            className={responsive ? "btnWeb btn bg-primary text-light  " : " btnMobile btn bg-primary text-light  "}
             style={{
-              width: "97px",
-              borderRadius: "8px",
-              height: "40px",
-              border: "none",
+  
             }}
           >
-            <Link to="/login" className=" text-dec-none text-light ">
+            <Link to="/admin/login" className=" text-dec-none text-light ">
               Sign Up
             </Link>
           </button>
