@@ -3,8 +3,8 @@ import { UserOutlined } from "@ant-design/icons";
 import {Input} from "antd";
 import { Link } from "react-router-dom";
 import "@benovshe/sasslibrary/dist/index.css";
-import rectangle from "../../images/login.png";
-import recMob from "../../images/rectMob.png";
+import rectangle from "../../../images/login.png";
+import recMob from "../../../images/rectMob.png";
 
 const Forgot = () => {
   const [responsive, setResponsive] = useState(window.innerWidth>480);

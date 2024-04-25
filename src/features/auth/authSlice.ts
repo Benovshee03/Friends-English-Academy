@@ -19,6 +19,10 @@ export const authLogin = createAsyncThunk(
     return response.data;
   }
 );
+export const authRegister = createAsyncThunk("auth/register", async (model: LoginModel) => {
+  const response = await http.post("/auth/register", model);
+  return response.data;
+});
 
 export const authLogout = createAsyncThunk("auth/logout", async () => {
   return null;

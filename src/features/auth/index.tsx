@@ -4,7 +4,7 @@ import { setStore } from "../../common/utils/localStorageHelper";
 import { useAuth } from "../../context/authContext";
 import { LoginModel } from "./types";
 import { UserOutlined } from "@ant-design/icons";
-import { Checkbox, Input, Space } from "antd";
+import {Form, Checkbox, Input, Space } from "antd";
 import { Link } from "react-router-dom";
 import "@benovshe/sasslibrary/dist/index.css";
 import google from "../../images/Google svg.png";
@@ -24,6 +24,7 @@ const Login = () => {
     if (result.status === "succeeded") {
       setStore("token", result.token);
       navigate("/");
+      
     }
   }, [result]);
 
@@ -39,9 +40,9 @@ const Login = () => {
   useEffect(() => {
     logoutAuth(); // storage silinecek :)
   }, []);
-  function onSubmit() {
-    navigate("/");
-  }
+  // function onSubmit() {
+  //   navigate("/");
+  // }
   const [responsive, setResponsive] = useState(window.innerWidth > 480);
   useEffect(() => {
     function handleResize() {
@@ -84,7 +85,7 @@ const Login = () => {
             : "mobLogin d-f justify-content-center align-items-center"
         }
       >
-        <div style={{ width: "339px" }} className="m-3 d-f fd-column g-2">
+        <Form onFinish={handleSubmit} style={{ width: "339px" }} className="m-3 d-f fd-column g-2">
           <div className={responsive ? "fs-xl fw-700 " : "fs-lg fw-700"}>
             Log in
           </div>
@@ -130,7 +131,7 @@ const Login = () => {
             <button
               className="btn bg-primary text-light w-100 fs-xs"
               style={{ height: "48px" }}
-              onClick={onSubmit}
+              // onClick={onSubmit}
             >
               Log In
             </button>
@@ -173,7 +174,7 @@ const Login = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </Form>
       </div>
       <div className="d-sm-none">
         <div className="position-absolute fs-20 text-light m-2 w-10">
