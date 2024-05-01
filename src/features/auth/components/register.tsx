@@ -1,29 +1,61 @@
-import React, { useState ,useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { UserOutlined } from "@ant-design/icons";
-import {  Button, Form, Input, Space } from "antd";
-import { Link } from "react-router-dom";
+import { Button, Form, Input } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 import "@benovshe/sasslibrary/dist/index.css";
 import rectangle from "../../../images/login.png";
 import recMob from "../../../images/rectMob.png";
-import { UserAppDispatch } from "../../../app/hooks";
-import FormItem from "antd/es/form/FormItem";
+import { UserAppDispatch, useAppSelector } from "../../../app/hooks";
+import { setStore } from "../../../common/utils/localStorageHelper";
+import { RegisterModel } from "../types";
+import { useAuth } from "../../../context/authContext";
+import authRegister from "../authSlice";
 
 
-interface RegisterProps{
+// const FormComponent: React.FC<FormComponentProps> = (props) => {
+
+
+
+interface RegisterProps {
   onFinish: (values: any) => void;
   initialValues?: any;
   isEdit?: boolean;
 }
-const Register :React.FC<RegisterProps> =(props) => {
-  const navigate = useNavigate();
-  const dispatch = UserAppDispatch();
-  useEffect(() => {
-  }, [dispatch]);
-  const { onFinish, initialValues, isEdit } = props;
+
+const Register: React.FC<RegisterProps> = ({ onFinish, isEdit }) => {
+  // const { registerAuth } = useAuth();
+  // const navigate = useNavigate();
+  // const dispatch = UserAppDispatch();
+
+  // const result = useAppSelector((state) => state.auth.result);
+
+
+  // useEffect(() => {
+  //   form.resetFields();
+  // }, []);
+
+  // useEffect(() => {
+  //   if (result?.status === "succeeded") {
+  //     setStore("token", result.token);
+  //     navigate("/login"); // Başarılı kayıttan sonra login sayfasına yönlendirme
+  //   }
+  // }, [result, navigate]);
+  const { registerAuth} = useAuth();
   const [form] = Form.useForm();
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [responsive, setResponsive] = useState(window.innerWidth>480);
+  const navigate = useNavigate();
+  const result = useAppSelector((state) => state.auth.result);
+  console.log(result);
+  useEffect(() => {
+    if (result.status === "succeeded") {
+      setStore("token", result.token);
+      navigate("/admin/login");
+    }
+  }, [result]);
+  const handleSubmit = (values: RegisterModel) => {
+    registerAuth(values.username, values.password,values.lastname,values.email,values.password);
+  };
+
+  const [responsive, setResponsive] = useState(window.innerWidth > 480);
   useEffect(() => {
     function handleResize() {
       setResponsive(window.innerWidth <= 480);
@@ -31,63 +63,80 @@ const Register :React.FC<RegisterProps> =(props) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  useEffect(() => {
-    form.resetFields();
-    function handleResize() {
-      setResponsive(window.innerWidth <= 480);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [initialValues]); 
+
+
   return (
-    <div className={responsive? "smContainer d-f mt-3 mb-3" : "container-sm d-f fd-column align-items-center"}>
-                  <div className="d-none mt-2 mb-2 d-sm-block">
-        <div className={responsive ? "position-absolute fs-20 text-light m-2 w-10" : "position-absolute fs-14 text-light m-2 w-20"}>
+    <div
+      className={
+        responsive
+          ? "smContainer d-f mt-3 mb-3"
+          : "container-sm d-f fd-column align-items-center"
+      }
+    >
+      <div className="d-none mt-2 mb-2 d-sm-block">
+        <div
+          className={
+            responsive
+              ? "position-absolute fs-20 text-light m-2 w-10"
+              : "position-absolute fs-14 text-light m-2 w-20"
+          }
+        >
           Welcome, Looks like you’re new here!
         </div>
-        <img src={responsive ? rectangle :recMob} alt="imagerec" />
+        <img src={responsive ? rectangle : recMob} alt="imagerec" />
       </div>
       <div
         style={{
-          // height: "795px",
           borderRadius: "0px 8px 8px 0px",
           background: " var(--Foundation-Red-Light, #F6EAEB)",
         }}
-        className={responsive ? "log d-f justify-content-center align-items-center " : "mobLogin d-f justify-content-center align-items-center"}
+        className={
+          responsive
+            ? "log d-f justify-content-center align-items-center "
+            : "mobLogin d-f justify-content-center align-items-center"
+        }
       >
-        <div   style={{ width: "339px" }} 
-
-        className="m-3 d-f fd-column g-2">
-          <div className={responsive ? "fs-xl fw-700 " : "fs-lg fw-700"}>Sign Up</div>
-          <Form form={form}
-                  onFinish={onFinish}
-                  initialValues={initialValues}
-           className={responsive? "d-f fd-column w-100 g-2  " : "d-f fd-column w-100"}>
-            <div>
-              <span className="fs-14">Full Name</span>
+        <Form
+          form={form}
+          onFinish={handleSubmit}
+          className={
+            responsive ? "d-f fd-column w-100 g-2  " : "d-f fd-column w-100"
+          }
+        >
+          <div className={responsive ? "fs-xl fw-700 " : "fs-lg fw-700"}>
+            Sign Up
+          </div>
+          <Form.Item name={"username"} rules={[{ required: true }]}>
             <Input
-            //  rules={[{requires:true}]}
               size="large"
-              placeholder="Enter your Name"
-              suffix={<UserOutlined />}
+              placeholder="Enter your username"
+              prefix={<UserOutlined />}
             />
-            </div>
-            <div>
-              <span className="fs-14">Mail Adress</span>
-            <Input 
+          </Form.Item>
+          <Form.Item name={"firstname"} rules={[{ required: true }]}>
+            <Input
               size="large"
-              placeholder="Enter your mail adress"
-              suffix={<UserOutlined />}
+              placeholder="Enter your First Name"
+              prefix={<UserOutlined />}
             />
-            </div>
-            <div>
-              <span className="fs-14">Password</span>
-            <Space direction="vertical"  >
-              <Space direction="horizontal" align="center">
-              {!isEdit && (
-              <FormItem
+          </Form.Item>
+          <Form.Item name={"lastname"} rules={[{ required: true }]}>
+            <Input
+              size="large"
+              placeholder="Enter your Last Name"
+              prefix={<UserOutlined />}
+            />
+          </Form.Item>
+          <Form.Item name={"email"} rules={[{ required: true }]}>
+            <Input
+              size="large"
+              placeholder="Enter your email address"
+              prefix={<UserOutlined />}
+            />
+          </Form.Item>
+          {!isEdit && (
+            <Form.Item
               name={"password"}
-              label="Password"
               rules={[
                 { required: true, message: "Please input your password." },
                 { min: 8, message: "Password must be minimum 8 characters." },
@@ -98,27 +147,23 @@ const Register :React.FC<RegisterProps> =(props) => {
                     "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.",
                 },
               ]}
-              >
-                <Input.Password
+            >
+              <Input.Password
                 size="large"
-                style={{width:"339px"}}
-                  placeholder="Enter your password"
-                  visibilityToggle={{
-                    visible: passwordVisible,
-                    onVisibleChange: setPasswordVisible,
-                  }}
-                />
-              </FormItem>
-
-                )}
-              </Space>
-            </Space>
-            </div>
-            <div className="w-100 mb-1" >
-            <Button htmlType="submit" className="btn bg-primary text-light w-100 fs-xs" style={{height:"48px"}}>Sign Up</Button>
-          </div>
-          </Form>
-
+                style={{ width: "339px" }}
+                placeholder="Enter your password"
+              />
+            </Form.Item>
+          )}
+          <Form.Item>
+            <Button
+              htmlType="submit"
+              className="btn bg-primary text-light w-100 fs-xs"
+              style={{ height: "48px" }}
+            >
+              Sign Up
+            </Button>
+          </Form.Item>
           <div className="d-f fd-column align-items-center g-1 ">
             <div className="fs-14 d-f g-1">
               <div>Already have an Account?</div>
@@ -127,7 +172,7 @@ const Register :React.FC<RegisterProps> =(props) => {
               </Link>
             </div>
           </div>
-        </div>
+        </Form>
       </div>
       <div className="d-sm-none">
         <div className="position-absolute fs-20 text-light m-2 w-10">

@@ -9,6 +9,7 @@ const initalState: LoginState = {
     statusCode: 0,
     message: "",
     token: "",
+    username: ""
   },
 };
 
@@ -23,6 +24,10 @@ export const authRegister = createAsyncThunk("auth/register", async (model: Logi
   const response = await http.post("/auth/register", model);
   return response.data;
 });
+// export const addUser = createAsyncThunk("auth/addUser", async (user: Users) => {
+//   const response = await userService.add(user);
+//   return response.data;
+// });
 
 export const authLogout = createAsyncThunk("auth/logout", async () => {
   return null;
@@ -39,6 +44,12 @@ const authSlice = createBaseSlice<LoginState>("auth", initalState, [
     thunk: authLogout,
     onFulfilled: (state, action) => {
       state = action.payload;
+    },
+  },
+  {
+    thunk: authRegister,
+    onFulfilled: (state, action) => {
+      state.result = action.payload;
     },
   },
 ]);

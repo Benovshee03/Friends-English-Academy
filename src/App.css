@@ -42,3 +42,18 @@
 .pasWeb{
   width: 339px;
 }
+.profilebutton{
+  height: 40px;
+}
+.profilebutton:hover{
+  background-color: #F6EAEB;
+}
+.profile{
+  background-color: #F6EAEB;
+}
+.menu{
+  background-color: white;
+}
+.menu .gap{
+  background-color: #F6EAEB;;
+}

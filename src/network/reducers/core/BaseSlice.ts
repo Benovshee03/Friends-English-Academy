@@ -15,7 +15,7 @@ import {
   function createBaseSlice<TState>(
     name: string,
     initialState: TState,
-    asyncThunks: AsyncThunkConfig<TState, any, any>[]
+    asyncThunks: AsyncThunkConfig<TState, any, any>[],
   ): Slice<TState> {
     return createSlice({
       name,

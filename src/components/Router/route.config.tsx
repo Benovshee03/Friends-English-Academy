@@ -13,8 +13,9 @@ import {
   Create as UserCreate,
 } from "../../features/users/index";
 import AuthRegister from "../../features/auth/authRegister";
-
-
+import Profile from "../Profile/ProfileLayout";
+import MyCourses from "../Profile/myCourses";
+import MyProfile from "../Profile/myProfile";
 const routeConfig: any[] = [
   {
     key: "1",
@@ -27,7 +28,7 @@ const routeConfig: any[] = [
     element: <AppLayout content={<NotFound />} />
   },  {
     key: "3",
-    path: "admin/login",
+    path: "/admin/login",
     element: <AppLayout content={<Login />} />
   },  {
     key: "4",
@@ -63,6 +64,16 @@ const routeConfig: any[] = [
     key: "10",
     path: "/admin/users/create",
     element: <AppLayout content={<UserCreate />} />
+  },
+  {
+    key: "11",
+    path: "/myProfile",
+    element: <AppLayout content={<Profile layout={<MyProfile />} />} />
+  },
+  {
+    key: "11",
+    path: "/myCourses",
+    element: <AppLayout content={<Profile layout={<MyCourses />} />} />
   },
 ];
 
