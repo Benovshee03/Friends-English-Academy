@@ -43,7 +43,7 @@
   width: 339px;
 }
 .profilebutton{
-  height: 40px;
+  height: 48px;
 }
 .profilebutton:hover{
   background-color: #F6EAEB;
@@ -56,4 +56,28 @@
 }
 .menu .gap{
   background-color: #F6EAEB;;
+}
+.profileicon{
+  height: 132px;
+}
+.courseRes{
+  height: auto;
+}
+.ageButton{
+  border-radius: 8px;
+  width: 120px;
+  height: 74px;
+  border: 1px solid  #830024;
+
+background:  #F6EAEB;
+cursor: pointer;
+}
+.ageButtonRes{
+  border-radius: 8px;
+  width: 90px;
+  height: 64px;
+  border: 1px solid  #830024;
+
+background:  #F6EAEB;
+cursor: pointer;
 }

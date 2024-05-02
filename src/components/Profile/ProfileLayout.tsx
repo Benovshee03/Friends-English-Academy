@@ -26,7 +26,7 @@ const Profile = ({ layout }: { layout: React.ReactNode }) => {
       className={
         responsive ? "d-f container  mt-1 mb-1 profile" : "container-sm d-f fd-column "
       }
-      style={{ height: "100vh" }}
+      style={responsive? { height: "100vh" } : {height:"auto"}}
     >
       <div className="w-20 d-f fd-column g-2 d-sm-none menu">
         <div className="d-f align-items-center">
@@ -67,35 +67,39 @@ const Profile = ({ layout }: { layout: React.ReactNode }) => {
         {menuOpen ? <img src={backArrow} alt="arrow"  /> : <img src={arrow} alt="arrow"  />}
          My Profile
       </div>
-      <div  style={{display : menuOpen ? "block" : "none"}}>
+      <div  style={{display : menuOpen ? "block" : "none",height:"80vh"}}>
         <div >
           <div className="d-f fd-column align-items-center">
-          <div className="image">
+          <div className="image mt-2">
             <img
-              style={{ width: "80px", height: "80px" }}
+              style={{ width: "56px", height: "56px" }}
               src={profile}
               alt="profile"
             />
           </div>
-          <div className="name fs-md">Benovshe Maharramova</div>
+          <div className="name fs-sm">Benovshe Maharramova</div>
           </div>
-          <div className="d-f fd-column align-items-center">
-            <ul className="list-style-none ">
-              <li >
-                <Link className="text-dec-none" to={"/myProfile"}>
-                  My Profile
-                </Link>
-              </li>
-              <li>
-                <Link className="text-dec-none" to={"/myCourses"}>
-                  My Courses
-                </Link>
-              </li>
-              <li>
-                <Link className="text-dec-none" to={"/setting"}>
-                  Setting
-                </Link>
-              </li>
+          <div className="d-f fd-column align-items-center mt-4">
+            <ul className="list-style-none w-90">
+            <li  className="profilebutton d-f align-items-center">
+            <img src={face} alt="face" style={{color:"gray"}} className="mr-2 ml-1"/>
+            <Link onClick={toggleMenu} className="text-dec-none" to={"/myProfile"}>
+              My Profile
+            </Link>
+          </li>
+          <li className="profilebutton d-f align-items-center" >
+          <img src={course} alt="face"  className="mr-2 ml-1"/>
+            <Link onClick={toggleMenu}  className="text-dec-none" to={"/myCourses"}>
+              My Courses
+            </Link>
+          </li>
+          <li className="profilebutton d-f align-items-center" >
+          <img src={setting} alt="face"  className="mr-2 ml-1"/>
+
+            <Link onClick={toggleMenu}  className="text-dec-none" to={"/setting"}>
+              Setting
+            </Link>
+          </li>
             </ul>
           </div>
         </div>

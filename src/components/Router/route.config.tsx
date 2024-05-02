@@ -16,6 +16,7 @@ import AuthRegister from "../../features/auth/authRegister";
 import Profile from "../Profile/ProfileLayout";
 import MyCourses from "../Profile/myCourses";
 import MyProfile from "../Profile/myProfile";
+import TestYourLevel from "../TestYourEnglish/index"
 const routeConfig: any[] = [
   {
     key: "1",
@@ -74,6 +75,11 @@ const routeConfig: any[] = [
     key: "11",
     path: "/myCourses",
     element: <AppLayout content={<Profile layout={<MyCourses />} />} />
+  },
+  {
+    key: "12",
+    path: "/leveltest",
+    element: <AppLayout content={<TestYourLevel/>}/>
   },
 ];
 

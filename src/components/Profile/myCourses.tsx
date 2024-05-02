@@ -15,7 +15,7 @@ const MyCourses = () => {
     }, []);
   
   return (
-    <div className='w-100 d-f fd-column align-items-center'>
+    <div className={responsive? 'w-100 d-f fd-column align-items-center' : "courseRes"}>
       <div
         className={
           responsive
@@ -37,30 +37,30 @@ const MyCourses = () => {
           className={
             responsive
               ? "d-f fd-column align-items-center justify-content-center"
-              : "d-f fd-column align-items-center "
+              : "d-f fd-column align-items-center justify-content-center"
           }
         >
-            <div>
-            <div>
-            <img src={img10} alt="course" />
+            <div className='w-100 d-f fd-column align-items-center'>
+            <div className='w-100 d-f justify-content-center'>
+            <img className='w-90' src={img10} alt="course" />
           </div>
-          <div className="fw-600" style={{ width: "358px" }}>
+          <div className="fw-600 w-90"  >
             Learning historical words and sentences
           </div>
           <div
-            style={{ width: "358px", marginTop: "20px" }}
-            className="d-f align-items-center g-2"
+            style={{ marginTop: "20px" }}
+            className="d-f align-items-center g-2 w-90"
           >
             <div className="d-f align-items-center g-1">
               <img src={lesson} alt="lesson" />
               Lesson : 6
             </div>
-            <div className="d-f align-items-center g-1">
+            <div className="d-f align-items-center g-1 ">
               <img src={level} alt="level" />
               Advanced
             </div>
           </div>
-          <div style={{ width: "358px", marginTop: "35px" }}>
+          <div className='w-90' style={{  marginTop: "35px" }}>
             <button
               className="btn text-light bg-primary d-f align-items-center justify-content-center"
               style={{ width: "164px", height: "48px" }}
@@ -74,34 +74,34 @@ const MyCourses = () => {
             </div>
         </div>
         <div
-          style={{ width: "382px",height:"426px" , border:"1px solid #BDBDBD" ,borderRadius:"8px",backgroundColor:"white" }}
+          style={{ width: "382px",height:"426px" , border:"1px solid #BDBDBD" ,borderRadius:"8px" ,backgroundColor:"white"}}
           className={
             responsive
               ? "d-f fd-column align-items-center justify-content-center"
               : "d-f fd-column align-items-center justify-content-center"
           }
         >
-            <div>
-            <div>
-            <img src={img10} alt="course" />
+            <div className='w-100 d-f fd-column align-items-center'>
+            <div className='w-100 d-f justify-content-center'>
+            <img className='w-90' src={img10} alt="course" />
           </div>
-          <div className="fw-600" style={{ width: "358px" }}>
+          <div className="fw-600 w-90"  >
             Learning historical words and sentences
           </div>
           <div
-            style={{ width: "358px", marginTop: "20px" }}
-            className="d-f align-items-center g-2"
+            style={{ marginTop: "20px" }}
+            className="d-f align-items-center g-2 w-90"
           >
             <div className="d-f align-items-center g-1">
               <img src={lesson} alt="lesson" />
               Lesson : 6
             </div>
-            <div className="d-f align-items-center g-1">
+            <div className="d-f align-items-center g-1 ">
               <img src={level} alt="level" />
               Advanced
             </div>
           </div>
-          <div style={{ width: "358px", marginTop: "35px" }}>
+          <div className='w-90' style={{  marginTop: "35px" }}>
             <button
               className="btn text-light bg-primary d-f align-items-center justify-content-center"
               style={{ width: "164px", height: "48px" }}

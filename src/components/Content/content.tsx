@@ -16,7 +16,36 @@ import lesson from "../../images/v6-icon (free).svg";
 import level from "../../images/icon.svg";
 import arrow from "../../images/keyboard_arrow_right.svg";
 import arrowPri from "../../images/arrowPrimary.png"
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function Content() {
+  interface Course {
+    courseName: string;
+    description: string;
+    level: string;
+    lessonCount: number;
+    image: string;
+  }
+  const navigate = useNavigate()
+  function toTest(){
+    navigate("/leveltest")
+  }
+  function toAll(){
+    navigate("/courses")
+  }
+  const myUrl = "http://localhost:5003/api/courses"
+  const [course, setCourse] = useState<Course[]>([]);
+  const getCourse = async () => {
+    await axios.get(myUrl)
+    .then((res) => {
+      // console.log(res.data);
+      setCourse(res.data) 
+    }) 
+  
+     .catch ((res) => {
+      console.error("Error fetching items:", res);
+    });
+  };
   const [responsive, setResponsive] = useState(window.innerWidth > 480);
   useEffect(() => {
     function handleResize() {
@@ -26,6 +55,7 @@ function Content() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   useEffect(() => {
+    getCourse()
     function handleResize() {
       setResponsive(window.innerWidth <= 480);
     }
@@ -55,6 +85,7 @@ function Content() {
             <button
               className="btn bg-primary text-light "
               style={{ width: "202px", height: "40px" }}
+              onClick={toTest}
             >
               Test Your English
             </button>
@@ -101,6 +132,8 @@ function Content() {
           <button
             className="btn bg-primary text-light"
             style={{ width: "133px", height: "30px" }}
+            onClick={toTest}
+
           >
             Test Your English
           </button>
@@ -298,220 +331,65 @@ function Content() {
         <div className="d-none d-sm-block container-sm fw-700 text-primary">
           Popular Courses
         </div>
-        <div
-          style={{ width: "392px" }}
-          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
-        >
-          <div>
-            <img src={img10} alt="course" />
-          </div>
-          <div className="fw-600" style={{ width: "358px" }}>
-            Learning historical words and sentences
-          </div>
-          <div
-            style={{ width: "358px", marginTop: "20px" }}
-            className="d-f align-items-center g-2"
+        {course && course.slice(1,4).map((e)=>{
+                {console.log(e)}
+
+          return(
+              
+            <div
+            style={{ width: "392px",height:"426px" , border:"1px solid #BDBDBD" ,borderRadius:"8px" }}
+            className={
+              responsive
+                ? "d-f fd-column align-items-center justify-content-center"
+                : "d-f fd-column align-items-center mt-1 "
+            }
           >
-            <div className="d-f align-items-center g-1">
-              <img src={lesson} alt="lesson" />
-              Lesson : 6
+              <div 
+              className={ responsive
+                ? "d-f fd-column align-items-center justify-content-center"
+                : "d-f fd-column align-items-center mt-1 "} 
+                >
+              <div
+              className={responsive ? "d-f fd-column align-items-center justify-content-center" : "d-f fd-column align-items-center justify-content-center mt-1"}
+              >
+              <img className="w-90 btn" src={e.image} alt="course" />
             </div>
-            <div className="d-f align-items-center g-1">
-              <img src={level} alt="level" />
-              Advanced
+            <div className="fw-600 fw-90 mt-1" >
+              {e.courseName}
             </div>
-          </div>
-          <div style={{ width: "358px", marginTop: "35px" }}>
-            <button
-              className="btn text-light bg-primary d-f align-items-center justify-content-center"
-              style={{ width: "164px", height: "48px" }}
+            <div
+              className="w-90 d-f align-items-center g-2 mt-2"
             >
-              Start Course
-              <span>
-                <img src={arrow} alt="" />
-              </span>
-            </button>
-          </div>
-        </div>
-        <div
-          style={{ width: "392px" }}
-          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
-        >
-          <div>
-            <img src={img10} alt="course" />
-          </div>
-          <div className="fw-600" style={{ width: "358px" }}>
-            Learning historical words and sentences
-          </div>
-          <div
-            style={{ width: "358px", marginTop: "20px" }}
-            className="d-f align-items-center g-2"
-          >
-            <div className="d-f align-items-center g-1">
-              <img src={lesson} alt="lesson" />
-              Lesson : 6
+              <div className="d-f align-items-center g-1">
+                <img src={lesson} alt="lesson" />
+                Lesson : {e.lessonCount}
+              </div>
+              <div className="d-f align-items-center g-1">
+                <img src={level} alt="level" />
+                {e.level}
+              </div>
             </div>
-            <div className="d-f align-items-center g-1">
-              <img src={level} alt="level" />
-              Advanced
+            <div style={{ width: "358px", marginTop: "35px" }}>
+              <button
+                className="btn text-light bg-primary d-f align-items-center justify-content-center"
+                style={{ width: "164px", height: "48px" }}
+              >
+                Start Course
+                <span>
+                  <img src={arrow} alt="" />
+                </span>
+              </button>
             </div>
+              </div>
           </div>
-          <div style={{ width: "358px", marginTop: "32px" }}>
-            <button
-              className="btn text-light bg-primary d-f align-items-center justify-content-center"
-              style={{ width: "164px", height: "48px" }}
-            >
-              Start Course
-              <span>
-                <img src={arrow} alt="" />
-              </span>
-            </button>
-          </div>
-        </div>
-        <div
-          style={{ width: "392px" }}
-          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
-        >
-          <div>
-            <img src={img10} alt="course" />
-          </div>
-          <div className="fw-600" style={{ width: "358px" }}>
-            Learning historical words and sentences
-          </div>
-          <div
-            style={{ width: "358px", marginTop: "20px" }}
-            className="d-f align-items-center g-2"
-          >
-            <div className="d-f align-items-center g-1">
-              <img src={lesson} alt="lesson" />
-              Lesson : 6
-            </div>
-            <div className="d-f align-items-center g-1">
-              <img src={level} alt="level" />
-              Advanced
-            </div>
-          </div>
-          <div style={{ width: "358px", marginTop: "32px" }}>
-            <button
-              className="btn text-light bg-primary d-f align-items-center justify-content-center"
-              style={{ width: "164px", height: "48px" }}
-            >
-              Start Course
-              <span>
-                <img src={arrow} alt="" />
-              </span>
-            </button>
-          </div>
-        </div>
-        <div
-          style={{ width: "392px" }}
-          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
-        >
-          <div>
-            <img src={img10} alt="course" />
-          </div>
-          <div className="fw-600" style={{ width: "358px" }}>
-            Learning historical words and sentences
-          </div>
-          <div
-            style={{ width: "358px", marginTop: "20px" }}
-            className="d-f align-items-center g-2"
-          >
-            <div className="d-f align-items-center g-1">
-              <img src={lesson} alt="lesson" />
-              Lesson : 6
-            </div>
-            <div className="d-f align-items-center g-1">
-              <img src={level} alt="level" />
-              Advanced
-            </div>
-          </div>
-          <div style={{ width: "358px", marginTop: "32px" }}>
-            <button
-              className="btn text-light bg-primary d-f align-items-center justify-content-center"
-              style={{ width: "164px", height: "48px" }}
-            >
-              Start Course
-              <span>
-                <img src={arrow} alt="" />
-              </span>
-            </button>
-          </div>
-        </div>
-        <div
-          style={{ width: "392px" }}
-          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
-        >
-          <div>
-            <img src={img10} alt="course" />
-          </div>
-          <div className="fw-600" style={{ width: "358px" }}>
-            Learning historical words and sentences
-          </div>
-          <div
-            style={{ width: "358px", marginTop: "20px" }}
-            className="d-f align-items-center g-2"
-          >
-            <div className="d-f align-items-center g-1">
-              <img src={lesson} alt="lesson" />
-              Lesson : 6
-            </div>
-            <div className="d-f align-items-center g-1">
-              <img src={level} alt="level" />
-              Advanced
-            </div>
-          </div>
-          <div style={{ width: "358px", marginTop: "32px" }}>
-            <button
-              className="btn text-light bg-primary d-f align-items-center justify-content-center"
-              style={{ width: "164px", height: "48px" }}
-            >
-              Start Course
-              <span>
-                <img src={arrow} alt="" />
-              </span>
-            </button>
-          </div>
-        </div>
-        <div
-          style={{ width: "392px" }}
-          className={responsive ? "d-f fd-column align-items-center " : "d-f fd-column align-items-center "}
-        >
-          <div>
-            <img src={img10} alt="course" />
-          </div>
-          <div className="fw-600" style={{ width: "358px" }}>
-            Learning historical words and sentences
-          </div>
-          <div
-            style={{ width: "358px", marginTop: "20px" }}
-            className="d-f align-items-center g-2"
-          >
-            <div className="d-f align-items-center g-1">
-              <img src={lesson} alt="lesson" />
-              Lesson : 6
-            </div>
-            <div className="d-f align-items-center g-1">
-              <img src={level} alt="level" />
-              Advanced
-            </div>
-          </div>
-          <div style={{ width: "358px", marginTop: "32px" }}>
-            <button
-              className="btn text-light bg-primary d-f align-items-center justify-content-center"
-              style={{ width: "164px", height: "48px" }}
-            >
-              Start Course
-              <span>
-                <img src={arrow} alt="" />
-              </span>
-            </button>
-          </div>
-        </div>
+            )
+        })}
         <div className="d-none container-sm d-sm-flex justify-content-center align-items-center" style={{height:"81px"}}>
         <button 
               className="text-primary bg-light d-f  buttonMore align-items-center justify-content-center"
               style={{ width: "164px", height: "48px" }}
+              onClick={toAll}
+
             >
               See all more
               <span>
